@@ -1,7 +1,8 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
-//Write the definition of myString() here
+void myString(char *&,int);
 
 int main(){
 	char *p;
@@ -9,7 +10,16 @@ int main(){
 	cout << "N = ";
 	cin >> N;		
 	myString(p,N);
-	cout << p;	
+	cout <<p;	
 	delete [] p;
 	return 0;
+}
+
+void myString(char *(&a),int b){
+	a=new char[b];
+	
+	for(int i=0;i<b;i++){
+		*(a+i)='A'+i;
+	}
+	*(a+b)='\0';
 }
